@@ -1,38 +1,451 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  background-color: #191919;
+}
+li {
+  list-style-type: none;
+}
+.section-title {
+  color: #c9ac8c;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.account-img {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  position: sticky;
+  padding: 0px 20px;
+  border-bottom: 3px solid #fff;
+}
+.nav-item {
+  list-style-type: none;
+  color: #fff !important;
+  position: relative;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 144.4%;
+}
+
+.nav-item:hover .nav-link {
+  cursor: pointer;
+  color: #c9ac8c;
+  transition: 0.5s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+.active {
+  color: #c9ac8c;
+}
+
+.hero-box {
+  position: relative;
+  height: 350px;
+  border-radius: 21px;
+  background: linear-gradient(
+    89deg,
+    #263a3d 70.78%,
+    rgba(25, 25, 25, 0) 105.05%
+  );
+  margin-top: 55px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  overflow: hidden;
+}
+
+.hero-img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -5;
+}
+.hero-symbol {
+  position: absolute;
+  opacity: 0.5;
+  left: 0;
+  bottom: 0px;
+  width: 200px;
+}
+.hero-title {
+  color: #c9ac8c;
+  font-family: Rotterburg Stylish FREE;
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 40px;
+  margin-left: 70px;
+}
+
+.search-section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  top: -70px;
+  border-radius: 15px;
+  background: #191919;
+  box-shadow: 0px 4px 77px 0px rgba(0, 0, 0, 0.25);
+}
+.input {
+  width: 80%;
+  display: flex;
+  margin: 25px auto;
+  justify-content: space-between;
+}
+
+.search-input {
+  width: 80%;
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 15px;
+  background: #404040;
+  border: #404040;
+  outline: none;
+  color: #fff;
+}
+.search-button {
+  width: 18%;
+  height: 50px;
+  border-radius: 15px;
+  background: #c9ac8c;
+  color: #3c2710;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+.bx-search-alt-2 {
+  margin-right: 8px;
+}
+.literature-nav {
+  width: 60%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.literature-nav-item {
+  color: #fff;
+}
+.literature-nav-item:hover {
+  cursor: pointer;
+  color: #c9ac8c;
+}
+.card-list {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* flex-wrap: wrap; */
+  flex-flow: wrap;
+}
+.card-item {
+  width: 150px;
+  margin: 5px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #cccccc23;
+}
+.card-item:hover {
+  cursor: pointer;
+  scale: 0.9;
+  transition: 0.5s;
+}
+.card-img {
+  width: 100%;
+}
+.card-name {
+  color: #c9ac8c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 45px;
+}
+.card-years {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px auto;
+  line-height: norma l;
+}
+.books {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+  align-items: center;
+}
+.bxs-book,
+.bx-headphone,
+.audioBook,
+.book-number {
+  color: #fff;
+}
+.bxs-book,
+.bx-headphone {
+  margin-right: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-button {
+  background: transparent;
+  outline: none;
+  display: none;
+  border: 1px solid #3c2710;
+}
+.menu-button .bx-menu {
+  color: #c9ac8c;
+  font-size: 35px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.category-button {
+  display: none;
+}
+.sidebar {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .card-item {
+    width: 45%;
+    overflow: hidden;
   }
-  to {
-    transform: rotate(360deg);
+  .card-name {
+    width: 90%;
+    font-size: 20px;
+    margin: 0 auto;
+    height: 80px;
+  }
+  .card-years {
+    font-size: 18px;
+  }
+  .bxs-book,
+  .bx-headphone,
+  .audioBook,
+  .book-number {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 576px;
+  }
+
+  .header {
+    border: none;
+    padding: 0;
+  }
+
+  .navbar {
+    display: none;
+  }
+  .account-img {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .sidebar .header .section-title {
+    display: none;
+  }
+  .sidebar .header .navbar {
+    display: block;
+    margin: 45px auto;
+  }
+
+  .sidebar .header .navbar .nav-item {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+
+  .sidebar .header .user-left {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 35px;
+    top: 30px;
+    background: transparent;
+  }
+  .sidebar .header .user-left .account-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .section-title {
+    font-size: 14px;
+  }
+  .menu-button {
+    display: block;
+    cursor: pointer;
+  }
+  .sidebar {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.8s;
+    width: 100%;
+    z-index: 855;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+  }
+  .sidebarTransformOpen {
+    transform: translate(0);
+    /* transition: 2s; */
+  }
+  .sidebarTransformClose {
+    transform: translate(100%);
+    /* transition: 2s; */
+  }
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  .close-Sidebar {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    padding: 5px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #3c2710;
+  }
+  .bx-exit {
+    color: #c9ac8c;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .hero-box {
+    width: 90%;
+  }
+  .hero-img {
+    display: none;
+  }
+  .hero-title {
+    font-size: 33px;
+    text-align: center;
+    margin: 90px 0 auto;
+  }
+  .search-section {
+    width: 80%;
+    height: 100px;
+    background: #191919;
+  }
+  .input {
+    width: 100%;
+    margin: 15px auto;
+  }
+  .search-input {
+    width: 75%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+  .search-button {
+    height: 30px;
+    font-size: 10px;
+    border-radius: 8px;
+    width: 20%;
+  }
+  .literature-nav {
+    /* display: none; */
+    /* height: 20px; */
+    overflow: hidden;
+    display: block;
+  }
+  .literature-nav-item {
+    display: block;
+  }
+  .main-category-title {
+    margin-bottom: 25px;
+  }
+  .literature-nav {
+    height: 0;
+    background-color: #191919;
+    overflow: hidden;
+    transition: 0.8s;
+    text-align: center;
+  }
+  .literature-nav_open {
+    height: 120px;
+    padding: 15px 25px;
+    border: 1px solid #c9ac8c;
+  }
+  .category-button {
+    display: inline;
+    height: 35px;
+    width: 35px;
+    margin-left: 25px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #3c2710;
+  }
+  .bx-chevron-down,
+  .bx-chevron-up {
+    font-size: 25px;
+    font-weight: bold;
+    color: #c9ac8c;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card-item {
+    width: 100%;
+  }
+  .card-name {
+    font-size: 25px;
+    height: 50px;
+  }
+  .card-years {
+    font-size: 20px;
+    margin: 15px auto;
+  }
+  .books {
+    width: 80%;
+  }
+  .bxs-book,
+  .bx-headphone,
+  .audioBook,
+  .book-number {
+    font-size: 25px;
   }
 }
