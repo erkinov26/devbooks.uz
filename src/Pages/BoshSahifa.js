@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import HeroSection from "./HeroSection";
-import Search from "./Search";
-import Cards from "./Cards";
+import HeroSection from "../components/HeroSection";
+import Search from "../components/Search";
+import Cards from "../components/Cards";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
 
-export default function BoshSahifa({ data, setData }) {
+export default function BoshSahifa({ data, setData, setOpen, open }) {
   const [filteredAuthors, setFilteredAuthors] = useState(data);
   const [searchText, setSearchText] = useState("");
   const [literatureOpen, setLiteratureOpen] = useState(false);
+  const [thumbItem, setThumbItem] = useState(0);
+
   const filterByType = (type) => {
     const filteredAuthors = data.filter((author) => author.type === type);
     setFilteredAuthors(filteredAuthors);
@@ -24,7 +28,13 @@ export default function BoshSahifa({ data, setData }) {
 
   return (
     <>
-      <HeroSection />
+      <Header setOpen={setOpen} />
+      <SideBar open={open} setOpen={setOpen} />
+      <HeroSection
+        thumbItem={thumbItem}
+        setThumbItem={setThumbItem}
+        filterByType={filterByType}
+      />
       <Search
         data={data}
         filterBySearch={filterBySearch}
@@ -37,9 +47,9 @@ export default function BoshSahifa({ data, setData }) {
           onClick={() => setLiteratureOpen(!literatureOpen)}
         >
           {literatureOpen ? (
-            <i class="bx bx-chevron-up"></i>
+            <i className="bx bx-chevron-up"></i>
           ) : (
-            <i class="bx bx-chevron-down"></i>
+            <i className="bx bx-chevron-down"></i>
           )}
         </button>
       </h1>
@@ -50,25 +60,37 @@ export default function BoshSahifa({ data, setData }) {
       >
         <li
           className="literature-nav-item"
-          onClick={() => filterByType("Temuriylar")}
+          onClick={() => {
+            filterByType("Temuriylar");
+            setThumbItem(0);
+          }}
         >
           Temuriylar Adabiyoti
         </li>
         <li
           className="literature-nav-item"
-          onClick={() => filterByType("Jadid")}
+          onClick={() => {
+            filterByType("Jadid");
+            setThumbItem(1);
+          }}
         >
           Jadid adabiyoti
         </li>
         <li
           className="literature-nav-item"
-          onClick={() => filterByType("Sovet")}
+          onClick={() => {
+            filterByType("Sovet");
+            setThumbItem(2);
+          }}
         >
           Sovet davri
         </li>
         <li
           className="literature-nav-item"
-          onClick={() => filterByType("Mustaqillik")}
+          onClick={() => {
+            filterByType("Mustaqillik");
+            setThumbItem(3);
+          }}
         >
           Mustaqillik Davri
         </li>

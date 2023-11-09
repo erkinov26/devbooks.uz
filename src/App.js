@@ -1,45 +1,53 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import BoshSahifa from "./components/BoshSahifa/BoshSahifa";
-import Nasr from "./components/Nasr/Nasr";
-import Nazm from "./components/Nazm/Nazm";
-import Maqolalar from "./components/Maqolalar/Maqolalar";
-import Forum from "./components/Forum/Forum";
+import BoshSahifa from "./Pages/BoshSahifa";
+import Nasr from "./Pages/Nasr";
+import Nazm from "./Pages/Nazm";
+import Maqolalar from "./Pages/Maqolalar";
+import Forum from "./Pages/Forum";
 import authors from "./Data/data";
 import { useState } from "react";
+import Login from "./Pages/login";
+// import Header from "./components/Header";
+// import SideBar from "./components/SideBar";
 function App() {
   const [data, setData] = useState(authors);
   const [open, setOpen] = useState(false);
 
   return (
     <div className="App">
-      <div className="main-header">
-        <Navbar />
-        <button className="menu-button" onClick={() => setOpen(true)}>
-          <i class="bx bx-menu"></i>
-        </button>
-      </div>
-      <div
-        className={`sidebar ${
-          open ? "sidebarTransformOpen" : "sidebarTransformClose"
-        }`}
-      >
-        <Navbar setOpen={setOpen} />
-        <button className="close-Sidebar" onClick={() => setOpen(false)}>
-          <i class="bx bx-exit"></i>
-        </button>
-      </div>
+      {/* <Header setOpen={setOpen} />
+      <SideBar open={open} setOpen={setOpen} /> */}
       <div className="main-page">
         <Routes>
           <Route
             path="/bosh_sahifa"
-            element={<BoshSahifa data={data} setData={setData} />}
+            element={
+              <BoshSahifa
+                open={open}
+                setOpen={setOpen}
+                data={data}
+                setData={setData}
+              />
+            }
           />
-          <Route path="/nasr" element={<Nasr />} />
-          <Route path="/nazm" element={<Nazm />} />
-          <Route path="/maqolalar" element={<Maqolalar />} />
-          <Route path="/forum" element={<Forum />} />
+          <Route
+            path="/nasr"
+            element={<Nasr open={open} setOpen={setOpen} />}
+          />
+          <Route
+            path="/nazm"
+            element={<Nazm open={open} setOpen={setOpen} />}
+          />
+          <Route
+            path="/maqolalar"
+            element={<Maqolalar open={open} setOpen={setOpen} />}
+          />
+          <Route
+            path="/forum"
+            element={<Forum open={open} setOpen={setOpen} />}
+          />
+          <Route path="/" element={<Login />} />
         </Routes>
       </div>
     </div>

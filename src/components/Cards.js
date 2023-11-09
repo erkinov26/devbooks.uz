@@ -1,7 +1,6 @@
 import React from "react";
 // import img from "../../images/behbudiy.png";
 export default function Cards({ data, setFakeData, fakeData, setData }) {
-  console.log(data);
   return (
     <ul className="card-list">
       {data.map((item) => (

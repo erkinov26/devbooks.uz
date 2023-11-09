@@ -233,7 +233,120 @@ li {
 .sidebar {
   display: none;
 }
+
+.thumb-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 80;
+  width: 30%;
+  height: 5px;
+  z-index: 10;
+  margin-top: 15px;
+  margin-left: 70px;
+}
+.thumb-item {
+  width: 20%;
+  height: 10px;
+  background-color: #4e4e4e;
+  transition: 0.8s;
+}
+.thumb-item.active {
+  background: #fff;
+}
+.thumb-item:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.logInSection {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  background: red;
+  display: flex;
+  align-items: center;
+}
+.logInLeft {
+  width: 50%;
+  height: 100%;
+  background: #c9ac8c;
+  position: relative;
+}
+.logInLeftImg {
+  width: 70%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.logInRight {
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.logInForm {
+  width: 70%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.logInTitle {
+  color: #000;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+.questionText {
+  color: #000;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+.innerQuestionText {
+  color: #549ff9;
+}
+
+.userNameInput,
+.userPasswordInput,
+.logBtn {
+  display: block;
+  width: 80%;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 5px 20px;
+  border: 1px solid #b4b4bb;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+.logBtn {
+  border-radius: 99px;
+  background: #152540;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  font-family: "Open Sans", sans-serif;
+}
+
 @media screen and (max-width: 600px) {
+  .thumb-box {
+    width: 70%;
+    margin: 40px auto;
+  }
   .card-item {
     width: 45%;
     overflow: hidden;
@@ -252,6 +365,19 @@ li {
   .audioBook,
   .book-number {
     font-size: 20px;
+  }
+  .logInLeft {
+    display: none;
+  }
+  .logInRight {
+    width: 100%;
+    text-align: center;
+  }
+  .userNameInput,
+  .userPasswordInput,
+  .logBtn {
+    width: 90%;
+    margin: 25px auto;
   }
 }
 
@@ -306,7 +432,7 @@ li {
     display: block;
   }
   .section-title {
-    font-size: 14px;
+    font-size: 18px;
   }
   .menu-button {
     display: block;
@@ -376,16 +502,16 @@ li {
     margin: 15px auto;
   }
   .search-input {
-    width: 75%;
+    width: 70%;
     height: 30px;
     font-size: 15px;
     border-radius: 8px;
   }
   .search-button {
     height: 30px;
-    font-size: 10px;
+    font-size: 15px;
     border-radius: 8px;
-    width: 20%;
+    width: 28%;
   }
   .literature-nav {
     /* display: none; */
@@ -447,5 +573,23 @@ li {
   .audioBook,
   .book-number {
     font-size: 25px;
+  }
+  .logInTitle {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .questionText {
+    font-size: 15px;
+  }
+  .userNameInput,
+  .userPasswordInput,
+  .logBtn {
+    height: 30px;
+    margin: 25px auto;
+  }
+  .logBtn {
+    font-size: 15px;
+    height: 45px;
+    padding: 0;
   }
 }
