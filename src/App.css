@@ -314,6 +314,7 @@ li {
 }
 .innerQuestionText {
   color: #549ff9;
+  cursor: pointer;
 }
 
 .userNameInput,
@@ -331,6 +332,7 @@ li {
 }
 
 .logBtn {
+  cursor: pointer;
   border-radius: 99px;
   background: #152540;
   color: #ffffff;

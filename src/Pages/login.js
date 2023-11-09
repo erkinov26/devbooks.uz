@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logInLeftImg from "../images/logInLeft.svg";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      email: "devbook@gmail.com",
+      password: "devbooks.uz",
+    },
+    {
+      email: "developerbooks@gmail.com",
+      password: "developerbooks.uz",
+    },
+  ]);
+  const emailRef = useRef();
+  const passwordRef = useRef();
   const onsubmit = (e) => {
     e.preventDefault();
 
+    // eslint-disable-next-line array-callback-return
     data.filter((user) => {
-      if (user.name && user.password) {
-        return navigate("/bosh-sahifa");
+      if (
+        user.email === emailRef.current.value &&
+        user.password === passwordRef.current.value
+      ) {
+        return navigate("/bosh_sahifa");
       }
     });
   };
@@ -23,11 +38,17 @@ const Login = () => {
         <form className="logInForm" onSubmit={onsubmit}>
           <h1 className="logInTitle">Sign in</h1>
           <p className="questionText">
-            Do not you have an account?{" "}
+            Do not you have an account ?{" "}
             <span className="innerQuestionText">Sign up</span>
           </p>
-          <input className="userNameInput" placeholder="Email" type="text" />
           <input
+            ref={emailRef}
+            className="userNameInput"
+            placeholder="Email"
+            type="text"
+          />
+          <input
+            ref={passwordRef}
             className="userPasswordInput"
             placeholder="Password"
             type="text"
