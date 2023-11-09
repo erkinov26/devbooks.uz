@@ -22,8 +22,8 @@ const Login = () => {
     // eslint-disable-next-line array-callback-return
     data.filter((user) => {
       if (
-        user.email === emailRef.current.value &&
-        user.password === passwordRef.current.value
+        user.email === emailRef.current.value.trim() &&
+        user.password === passwordRef.current.value.trim()
       ) {
         return navigate("/bosh_sahifa");
       }
