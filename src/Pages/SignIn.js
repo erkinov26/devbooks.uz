@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../images/logInLeft.svg";
 import userData from "../Data/UserData";
-
-function LogIn () {
+import img from "../images/logInLeft.svg";
+export default function SignIn() {
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -57,4 +56,3 @@ function LogIn () {
     </div>
   );
 }
-export default LogIn;

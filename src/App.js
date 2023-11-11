@@ -8,9 +8,8 @@ import Forum from "./Pages/Forum";
 import authors from "./Data/data";
 import { useState } from "react";
 import SignUp from "./Pages/SignUp";
-// import LogIn from "./Pages/LogIn";
-import LogIn from "./Pages/LogIn";
 import MyProfile from "./Pages/MyProfile";
+import SignIn from "./Pages/SignIn";
 function App() {
   const [data, setData] = useState(authors);
   const [open, setOpen] = useState(false);
@@ -46,8 +45,7 @@ function App() {
             path="/forum"
             element={<Forum open={open} setOpen={setOpen} />}
           />
-          {/* <Route path="/" element={<LogIn />} /> */}
-          <Route path="/" element={<LogIn />} />
+          <Route path="/" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
 
           <Route path="/myProfile" element={<MyProfile />} />
