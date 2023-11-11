@@ -25,6 +25,7 @@ export default function Thumbs({ filterByType, setThumbItem, thumbItem }) {
         }}
       ></li>
       <li
+      // some content is added
         className={`thumb-item ${thumbItem === 3 ? "active" : ""}`}
         onClick={() => {
           filterByType("Mustaqillik");
