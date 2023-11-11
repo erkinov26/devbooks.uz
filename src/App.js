@@ -10,17 +10,12 @@ import { useState } from "react";
 import SignUp from "./Pages/SignUp";
 import LogIn from "./Pages/LogIn";
 import MyProfile from "./Pages/MyProfile";
-
-// import Header from "./components/Header";
-// import SideBar from "./components/SideBar";
 function App() {
   const [data, setData] = useState(authors);
   const [open, setOpen] = useState(false);
 
   return (
     <div className="App">
-      {/* <Header setOpen={setOpen} />
-      <SideBar open={open} setOpen={setOpen} /> */}
       <div className="main-page">
         <Routes>
           <Route
