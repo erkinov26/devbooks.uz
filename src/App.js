@@ -9,6 +9,7 @@ import authors from "./Data/data";
 import { useState } from "react";
 import SignUp from "./Pages/SignUp";
 // import LogIn from "./Pages/LogIn";
+import LogIn from "./Pages/LogIn";
 import MyProfile from "./Pages/MyProfile";
 function App() {
   const [data, setData] = useState(authors);
@@ -46,6 +47,7 @@ function App() {
             element={<Forum open={open} setOpen={setOpen} />}
           />
           {/* <Route path="/" element={<LogIn />} /> */}
+          <Route path="/" element={<LogIn />} />
           <Route path="/SignUp" element={<SignUp />} />
 
           <Route path="/myProfile" element={<MyProfile />} />
