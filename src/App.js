@@ -9,6 +9,7 @@ import authors from "./Data/data";
 import { useState } from "react";
 import SignUp from "./Pages/SignUp";
 import LogIn from "./Pages/LogIn";
+import MyProfile from "./Pages/MyProfile";
 
 // import Header from "./components/Header";
 // import SideBar from "./components/SideBar";
@@ -51,6 +52,8 @@ function App() {
           />
           <Route path="/" element={<LogIn />} />
           <Route path="/SignUp" element={<SignUp />} />
+
+          <Route path="/myProfile" element={<MyProfile />} />
         </Routes>
       </div>
     </div>

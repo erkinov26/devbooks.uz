@@ -10,8 +10,9 @@ export default function SideBar({ open, setOpen }) {
     >
       <Header setOpen={setOpen} />
       <button className="close-Sidebar" onClick={() => setOpen(false)}>
-        <i className="bx bx-exit"></i>
+        <i className="bx bx-x"></i>
       </button>
     </div>
   );
 }
+// <i className="bx bx-exit"></i>

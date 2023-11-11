@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import img from "../images/account-img.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import Toolbar from "./Toolbar";
 
 export default function Header({ setOpen }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [openAccountModal, setOpenAccountModal] = useState(false);
+  const [profileToolBar, setProfileToolbar] = useState(false);
+  console.log(
+    "🚀 ~ file: Header.js:10 ~ Header ~ profileToolBar:",
+    profileToolBar
+  );
   const currentPath = location.pathname;
   return (
     <div className="main-header">
+      
       <div className="header">
         <h1 className="section-title"> BADIYAT</h1>
         <ul className="navbar">
@@ -72,14 +78,12 @@ export default function Header({ setOpen }) {
             </p>
           </li>
         </ul>
-        <div
-          className="user-left"
-          onClick={() => setOpenAccountModal(!openAccountModal)}
-        >
-          <img className="account-img" src={img} alt="img" />
-
-          <i onClick={() => navigate("/")} class="bx bx-log-out"></i>
-        </div>
+        <Toolbar
+          setOpenAccountModal={setOpenAccountModal}
+          openAccountModal={openAccountModal}
+          setProfileToolbar={setProfileToolbar}
+          profileToolBar={profileToolBar}
+        />
       </div>
       <button
         className="menu-button"

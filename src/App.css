@@ -21,8 +21,7 @@ li {
 }
 
 .account-img {
-  height: 40%;
-  margin-right: 20px;
+  height: 28px;
   flex-shrink: 0;
   cursor: pointer;
 }
@@ -32,7 +31,6 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
   padding: 0px 20px;
   border-bottom: 3px solid #fff;
 }
@@ -220,7 +218,7 @@ li {
   background: transparent;
   outline: none;
   display: none;
-  border: 1px solid #3c2710;
+  border: none;
 }
 .menu-button .bx-menu {
   color: #c9ac8c;
@@ -350,65 +348,50 @@ li {
   font-family: "Open Sans", sans-serif;
 }
 .user-left {
-  width: 12%;
+  width: 45px;
   display: flex;
+  justify-content: space-between;
+  position: relative;
   align-items: center;
 }
-
-.bx-log-out {
-  font-size: 40px;
+.profileToolBar {
+  position: absolute;
+  background: #191919;
+  overflow: hidden;
+  z-index: 75;
+  right: 0;
+  top: 45px;
+  width: 0px;
+  height: 0px;
+  border: 1px solid #191919;
+  transition: 0.5s;
+  text-align: center;
+}
+.profileToolBarBlock {
+  height: 80px;
+  width: 150px;
+}
+.profileToolBarItem {
   color: #fff;
   cursor: pointer;
-  transition: 0.5s;
+  width: 110px;
+  margin: 10px auto;
 }
-.bx-log-out:hover {
-  color: red;
-}
-
-@media screen and (max-width: 600px) {
-  .thumb-box {
-    width: 70%;
-    margin: 40px auto;
-  }
-  .card-item {
-    width: 45%;
-    overflow: hidden;
-  }
-  .card-name {
-    width: 90%;
-    font-size: 20px;
-    margin: 0 auto;
-    height: 80px;
-  }
-  .card-years {
-    font-size: 18px;
-  }
-  .bxs-book,
-  .bx-headphone,
-  .audioBook,
-  .book-number {
-    font-size: 20px;
-  }
-  .logInLeft,
-  .signInLeft {
-    display: none;
-  }
-  .logInRight,
-  .signInRight {
-    width: 100%;
-    text-align: center;
-  }
-  .FormInput,
-  .logBtn {
-    width: 90%;
-    margin: 25px auto;
-  }
-  .sidebar .menu-button {
-    display: none;
-  }
+.profileToolBarItem:hover {
+  color: #c9ac8c;
 }
 
-@media screen and (max-width: 576px) {
+.bx-chevron-up,
+.bx-chevron-down {
+  color: #c9ac8c;
+}
+.toolbarX {
+  display: none;
+}
+@media screen and (max-width: 770px) {
+  .navbar {
+    display: none;
+  }
   .container {
     width: 576px;
   }
@@ -416,21 +399,50 @@ li {
   .header {
     border: none;
     padding: 0;
-  }
-
-  .navbar {
-    display: none;
-  }
-  .account-img {
-    display: none;
+    text-align: center;
   }
 
   .sidebar {
     display: block;
     position: relative;
+  }
+  .section-title {
     margin: 0 auto;
   }
 
+  .profileToolBar {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.8s;
+    width: 100%;
+    z-index: 855;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+    transform: translate(-100%);
+  }
+  .profileToolBarItem {
+    margin: 15px auto;
+  }
+  .profileToolBarBlock {
+    transform: translate(0);
+  }
+
+  .toolbarX {
+    position: absolute;
+    display: block;
+    right: 15px;
+    top: 10px;
+  }
+  .bx-x{
+    color: #fff;
+  }
+  .bx-x:hover {
+    color: #c9ac8c;
+  }
   .sidebar .header .section-title {
     display: none;
   }
@@ -444,20 +456,14 @@ li {
     margin-bottom: 25px;
   }
 
-  .sidebar .header .user-left {
-    display: block;
+  .user-left {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 0px;
-    top: 10px;
-    background: transparent;
   }
-  .sidebar .header .user-left .account-img {
-    width: 100%;
-    height: 100%;
-    display: block;
+
+  .sidebar .header .user-left {
+    display: none;
   }
+
   .section-title {
     font-size: 18px;
   }
@@ -502,12 +508,13 @@ li {
     padding: 5px;
     background-color: transparent;
     outline: none;
-    border: 1px solid #3c2710;
+    border: none;
   }
-  .bx-exit {
+  .bx-x {
     color: #c9ac8c;
     font-size: 35px;
     font-weight: bold;
+    cursor: pointer;
   }
   .hero-box {
     width: 90%;
@@ -542,8 +549,6 @@ li {
     width: 28%;
   }
   .literature-nav {
-    /* display: none; */
-    /* height: 20px; */
     overflow: hidden;
     display: block;
   }
@@ -574,11 +579,61 @@ li {
     outline: none;
     border: 1px solid #3c2710;
   }
+  .header .bx-chevron-down,
+  .header .bx-chevron-up {
+    display: none;
+  }
+  .sidebar .menu-button {
+    display: none;
+  }
+
   .bx-chevron-down,
   .bx-chevron-up {
     font-size: 25px;
     font-weight: bold;
     color: #c9ac8c;
+  }
+}
+@media screen and (max-width: 600px) {
+  .thumb-box {
+    width: 70%;
+    margin: 40px auto;
+  }
+  .card-item {
+    width: 45%;
+    overflow: hidden;
+  }
+  .card-name {
+    width: 90%;
+    font-size: 20px;
+    margin: 0 auto;
+    height: 80px;
+  }
+  .card-years {
+    font-size: 18px;
+  }
+  .bxs-book,
+  .bx-headphone,
+  .audioBook,
+  .book-number {
+    font-size: 20px;
+  }
+  .logInLeft,
+  .signInLeft {
+    display: none;
+  }
+  .logInRight,
+  .signInRight {
+    width: 100%;
+    text-align: center;
+  }
+  .FormInput,
+  .logBtn {
+    width: 90%;
+    margin: 25px auto;
+  }
+  .sidebar .menu-button {
+    display: none;
   }
 }
 
