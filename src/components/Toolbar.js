@@ -8,6 +8,7 @@ export default function Toolbar({
   setProfileToolbar,
 }) {
   const navigate = useNavigate();
+    
   return (
     <div
       className="user-left"
