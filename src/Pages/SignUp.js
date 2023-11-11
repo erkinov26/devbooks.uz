@@ -42,30 +42,35 @@ export default function SignUp() {
             </span>
           </p>
           <input
+            required
             ref={first_name}
             className="FormInput"
             placeholder="First name"
             type="text"
           />
           <input
+            required
             ref={last_name}
             className="FormInput"
             placeholder="Last name"
             type="text"
           />
           <input
+            required
             ref={phone}
             className="FormInput"
             placeholder="phone"
             type="text"
           />
           <input
+            required
             ref={email}
             className="FormInput"
             placeholder="Email"
             type="email"
           />
           <input
+            required
             ref={password}
             className="FormInput"
             placeholder="Password"
