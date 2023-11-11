@@ -479,6 +479,7 @@ li {
 .profileInfo {
   width: 25%;
   margin: 90px auto;
+  padding: 20px;
   box-shadow: 3px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .myProfile-header {
