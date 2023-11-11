@@ -7,7 +7,9 @@ import Maqolalar from "./Pages/Maqolalar";
 import Forum from "./Pages/Forum";
 import authors from "./Data/data";
 import { useState } from "react";
-import Login from "./Pages/login";
+import SignUp from "./Pages/SignUp";
+import LogIn from "./Pages/LogIn";
+
 // import Header from "./components/Header";
 // import SideBar from "./components/SideBar";
 function App() {
@@ -47,7 +49,8 @@ function App() {
             path="/forum"
             element={<Forum open={open} setOpen={setOpen} />}
           />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<LogIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </div>
     </div>

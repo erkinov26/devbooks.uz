@@ -261,7 +261,8 @@ li {
   background-color: #fff;
 }
 
-.logInSection {
+.logInSection,
+.signInSection {
   margin: 0 auto;
   width: 100%;
   height: 100vh;
@@ -269,34 +270,39 @@ li {
   display: flex;
   align-items: center;
 }
-.logInLeft {
+.logInLeft,
+.signInLeft {
   width: 50%;
   height: 100%;
   background: #c9ac8c;
   position: relative;
 }
-.logInLeftImg {
+.logInLeftImg,
+.signInLeftImg {
   width: 70%;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
 }
-.logInRight {
+.logInRight,
+.signInRight {
   width: 50%;
   height: 100%;
   background: #fff;
   position: relative;
 }
 
-.logInForm {
+.logInForm,
+.signInForm {
   width: 70%;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
 }
-.logInTitle {
+.logInTitle,
+.signInTitle {
   color: #000;
   font-size: 36px;
   font-style: normal;
@@ -318,8 +324,7 @@ li {
   cursor: pointer;
 }
 
-.userNameInput,
-.userPasswordInput,
+.FormInput,
 .logBtn {
   display: block;
   width: 80%;
@@ -356,7 +361,7 @@ li {
   cursor: pointer;
   transition: 0.5s;
 }
-.bx-log-out:hover{
+.bx-log-out:hover {
   color: red;
 }
 
@@ -384,15 +389,16 @@ li {
   .book-number {
     font-size: 20px;
   }
-  .logInLeft {
+  .logInLeft,
+  .signInLeft {
     display: none;
   }
-  .logInRight {
+  .logInRight,
+  .signInRight {
     width: 100%;
     text-align: center;
   }
-  .userNameInput,
-  .userPasswordInput,
+  .FormInput,
   .logBtn {
     width: 90%;
     margin: 25px auto;
@@ -458,6 +464,7 @@ li {
   .menu-button {
     display: block;
     cursor: pointer;
+    margin-left: 10px;
   }
   .sidebar {
     position: fixed;
@@ -596,15 +603,15 @@ li {
   .book-number {
     font-size: 25px;
   }
-  .logInTitle {
+  .logInTitle,
+  .signInTitle {
     font-size: 20px;
     font-weight: bold;
   }
   .questionText {
     font-size: 15px;
   }
-  .userNameInput,
-  .userPasswordInput,
+  .FormInput,
   .logBtn {
     height: 30px;
     margin: 25px auto;

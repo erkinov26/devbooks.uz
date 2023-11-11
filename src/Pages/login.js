@@ -1,26 +1,17 @@
-import { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import logInLeftImg from "../images/logInLeft.svg";
+import img from "../images/logInLeft.svg";
+import userData from "../Data/UserData";
 
-const Login = () => {
+const LogIn = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([
-    {
-      email: "devbook@gmail.com",
-      password: "devbooks.uz",
-    },
-    {
-      email: "developerbooks@gmail.com",
-      password: "developerbooks.uz",
-    },
-  ]);
   const emailRef = useRef();
   const passwordRef = useRef();
   const onsubmit = (e) => {
     e.preventDefault();
 
     // eslint-disable-next-line array-callback-return
-    data.filter((user) => {
+    userData.filter((user) => {
       if (
         user.email === emailRef.current.value.trim() &&
         user.password === passwordRef.current.value.trim()
@@ -32,24 +23,29 @@ const Login = () => {
   return (
     <div className="logInSection">
       <div className="logInLeft">
-        <img src={logInLeftImg} alt={logInLeftImg} className="logInLeftImg" />
+        <img src={img} alt={img} className="logInLeftImg" />
       </div>
       <div className="logInRight">
         <form className="logInForm" onSubmit={onsubmit}>
           <h1 className="logInTitle">Sign in</h1>
           <p className="questionText">
             Do not you have an account ?{" "}
-            <span className="innerQuestionText">Sign up</span>
+            <span
+              className="innerQuestionText"
+              onClick={() => navigate("/SignUp")}
+            >
+              Sign up
+            </span>
           </p>
           <input
             ref={emailRef}
-            className="userNameInput"
+            className="FormInput"
             placeholder="Email"
             type="email"
           />
           <input
             ref={passwordRef}
-            className="userPasswordInput"
+            className="FormInput"
             placeholder="Password"
             type="text"
           />
@@ -61,5 +57,4 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;
+export default LogIn;

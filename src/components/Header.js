@@ -78,10 +78,15 @@ export default function Header({ setOpen }) {
         >
           <img className="account-img" src={img} alt="img" />
 
-          <i class="bx bx-log-out"></i>
+          <i onClick={() => navigate("/")} class="bx bx-log-out"></i>
         </div>
       </div>
-      <button className="menu-button" onClick={() => setOpen(true)}>
+      <button
+        className="menu-button"
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
         <i className="bx bx-menu"></i>
       </button>
     </div>
