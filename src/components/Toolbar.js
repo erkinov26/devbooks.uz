@@ -32,10 +32,17 @@ export default function Toolbar({
       >
         <p
           className="profileToolBarItem"
-          onClick={() => navigate("/myProfile")}
+          onClick={() => navigate("/my_account")}
         >
-          My Profile
+          Profile
         </p>
+        <p className="profileToolBarItem" onClick={() => navigate("/security")}>
+          Security
+        </p>
+        <p className="profileToolBarItem" onClick={() => navigate("/settings")}>
+          Settings
+        </p>
+
         <p className="profileToolBarItem" onClick={() => navigate("/")}>
           Log Out
         </p>

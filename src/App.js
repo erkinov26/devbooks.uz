@@ -8,49 +8,45 @@ import Forum from "./Pages/Forum";
 import authors from "./Data/data";
 import { useState } from "react";
 import SignUp from "./Pages/SignUp";
-import MyProfile from "./Pages/MyProfile";
 import SignIn from "./Pages/SignIn";
+import Profile from "./Pages/Profile";
+import Security from "./Pages/Security";
+import Setting from "./Pages/Setting";
 function App() {
   const [data, setData] = useState(authors);
   const [open, setOpen] = useState(false);
 
   return (
     <div className="App">
-      <div className="main-page">
-        <Routes>
-          <Route
-            path="/bosh_sahifa"
-            element={
-              <BoshSahifa
-                open={open}
-                setOpen={setOpen}
-                data={data}
-                setData={setData}
-              />
-            }
-          />
-          <Route
-            path="/nasr"
-            element={<Nasr open={open} setOpen={setOpen} />}
-          />
-          <Route
-            path="/nazm"
-            element={<Nazm open={open} setOpen={setOpen} />}
-          />
-          <Route
-            path="/maqolalar"
-            element={<Maqolalar open={open} setOpen={setOpen} />}
-          />
-          <Route
-            path="/forum"
-            element={<Forum open={open} setOpen={setOpen} />}
-          />
-          <Route path="/" element={<SignIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
+      <Routes>
+        <Route
+          path="/bosh_sahifa"
+          element={
+            <BoshSahifa
+              open={open}
+              setOpen={setOpen}
+              data={data}
+              setData={setData}
+            />
+          }
+        />
+        <Route path="/nasr" element={<Nasr open={open} setOpen={setOpen} />} />
+        <Route path="/nazm" element={<Nazm open={open} setOpen={setOpen} />} />
+        <Route
+          path="/maqolalar"
+          element={<Maqolalar open={open} setOpen={setOpen} />}
+        />
+        <Route
+          path="/forum"
+          element={<Forum open={open} setOpen={setOpen} />}
+        />
+        <Route path="/" element={<SignIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
 
-          <Route path="/myProfile" element={<MyProfile />} />
-        </Routes>
-      </div>
+        <Route path="/my_account" element={<Profile />} />
+        <Route path="/security" element={<Security />} />
+        <Route path="/setting" element={<Setting />} />
+      </Routes>
     </div>
     // aaa
   );
