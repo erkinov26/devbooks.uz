@@ -45,7 +45,7 @@ const Login = () => {
             ref={emailRef}
             className="userNameInput"
             placeholder="Email"
-            type="text"
+            type="email"
           />
           <input
             ref={passwordRef}

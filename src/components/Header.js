@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../images/account-img.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header({ setOpen }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const [openAccountModal, setOpenAccountModal] = useState(false);
   const currentPath = location.pathname;
   return (
     <div className="main-header">
@@ -71,8 +72,13 @@ export default function Header({ setOpen }) {
             </p>
           </li>
         </ul>
-        <div className="user-left">
+        <div
+          className="user-left"
+          onClick={() => setOpenAccountModal(!openAccountModal)}
+        >
           <img className="account-img" src={img} alt="img" />
+
+          <i class="bx bx-log-out"></i>
         </div>
       </div>
       <button className="menu-button" onClick={() => setOpen(true)}>

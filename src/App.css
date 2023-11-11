@@ -21,9 +21,10 @@ li {
 }
 
 .account-img {
-  width: 50px;
-  height: 50px;
+  height: 40%;
+  margin-right: 20px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .header {
@@ -343,6 +344,21 @@ li {
   line-height: 36px;
   font-family: "Open Sans", sans-serif;
 }
+.user-left {
+  width: 12%;
+  display: flex;
+  align-items: center;
+}
+
+.bx-log-out {
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.bx-log-out:hover{
+  color: red;
+}
 
 @media screen and (max-width: 600px) {
   .thumb-box {
@@ -380,6 +396,9 @@ li {
   .logBtn {
     width: 90%;
     margin: 25px auto;
+  }
+  .sidebar .menu-button {
+    display: none;
   }
 }
 
@@ -424,8 +443,8 @@ li {
     position: absolute;
     width: 40px;
     height: 40px;
-    left: 35px;
-    top: 30px;
+    left: 0px;
+    top: 10px;
     background: transparent;
   }
   .sidebar .header .user-left .account-img {
@@ -555,6 +574,7 @@ li {
     color: #c9ac8c;
   }
 }
+
 @media screen and (max-width: 400px) {
   .card-item {
     width: 100%;
