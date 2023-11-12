@@ -517,7 +517,7 @@ li {
   background-color: #fff;
   padding: 20px;
 }
-.section-title {
+.notFoundPage .section-title {
   font-weight: 600;
   text-align: left;
   margin-left: 50px;
@@ -551,7 +551,7 @@ li {
     position: static;
     font-size: 30px;
   }
-  .section-title{
+  .notFoundPage .section-title{
     margin: 0 auto;
     width: 90%;
   }
