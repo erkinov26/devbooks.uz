@@ -12,6 +12,7 @@ import SignIn from "./Pages/SignIn";
 import Profile from "./Pages/Profile";
 import Security from "./Pages/Security";
 import Setting from "./Pages/Setting";
+import NotFound from "./Pages/NotFound";
 function App() {
   const [data, setData] = useState(authors);
   const [open, setOpen] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/my_account" element={<Profile />} />
         <Route path="/security" element={<Security />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
     // aaa
