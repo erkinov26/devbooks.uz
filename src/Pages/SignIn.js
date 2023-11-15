@@ -1,16 +1,20 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import userData from "../Data/UserData";
 import img from "../images/logInLeft.svg";
-export default function SignIn() {
+export default function SignIn({
+  userInfoData,
+  setUserInfoData,
+  currentUser,
+  setCurrentUser,
+}) {
+  console.log(userInfoData, "userInfoData in singin");
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
   const onsubmit = (e) => {
     e.preventDefault();
-
     // eslint-disable-next-line array-callback-return
-    userData.filter((user) => {
+    userInfoData.map((user) => {
       if (
         user.email === emailRef.current.value.trim() &&
         user.password === passwordRef.current.value.trim()

@@ -17,7 +17,10 @@ import userData from "./Data/UserData";
 function App() {
   const [data, setData] = useState(authors);
   const [userInfoData, setUserInfoData] = useState(userData);
+  // console.log(userInfoData, "app js");
   const [open, setOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+  console.log("🚀 ~ file: App.js:23 ~ App ~ currentUser:", currentUser);
 
   return (
     <div className="App">
@@ -43,18 +46,38 @@ function App() {
           path="/forum"
           element={<Forum open={open} setOpen={setOpen} />}
         />
-        <Route path="/" element={<SignIn />} />
+        <Route
+          path="/"
+          element={
+            <SignIn
+              userInfoData={userInfoData}
+              setUserInfoData={setUserInfoData}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
         <Route
           path="/SignUp"
           element={
             <SignUp
               userInfoData={userInfoData}
               setUserInfoData={setUserInfoData}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
             />
           }
         />
 
-        <Route path="/my_account" element={<Profile />} />
+        <Route
+          path="/my_account"
+          element={
+            <Profile
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
         <Route path="/security" element={<Security />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="*" element={<NotFound />} />

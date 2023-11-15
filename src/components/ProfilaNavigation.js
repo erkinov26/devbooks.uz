@@ -14,7 +14,7 @@ export default function ProfilaNavigation() {
         } `}
       >
         <i
-          class="bx bx-menu-alt-left"
+          className="bx bx-menu-alt-left"
           onClick={() => setNavigation(!navigation)}
         ></i>
         <li
@@ -64,7 +64,7 @@ export default function ProfilaNavigation() {
         <i className="bx bx-arrow-back"></i>
       </span>
       <i
-        class="bx bx-menu-alt-right"
+        className="bx bx-menu-alt-right"
         onClick={() => setNavigation(!navigation)}
       ></i>
     </div>

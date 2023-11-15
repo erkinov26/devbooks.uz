@@ -1,37 +1,38 @@
 import React, { useRef } from "react";
 import SignUpImageLeft from "../images/SignUpImageLeft.png";
 import { useNavigate } from "react-router-dom";
-export default function SignUp({ userInfoData, setUserInfoData }) {
-  console.log(userInfoData, "userdata signup");
+export default function SignUp({
+  userInfoData,
+  setUserInfoData,
+  currentUser,
+  setCurrentUser,
+}) {
+  // console.log("🚀 ~ file: SignUp.js:5 ~ SignUp ~ userInfoData:", userInfoData);
   const first_name = useRef();
   const last_name = useRef();
   const phone = useRef();
   const email = useRef();
   const password = useRef();
   const navigate = useNavigate();
-  // const [userYes, setUserYes] = useState();
+
   const addNewUser = (e) => {
     e.preventDefault();
-    // eslint-disable-next-line array-callback-return
-    // userData.map((user) => {
-    // if (user.email !== email.current.value.trim()) {
-    // setUserYes(false);
-    setUserInfoData(...userInfoData, {
+
+    // Accessing the current values of the refs
+    const newUser = {
       id: 3,
-      first_name: first_name,
-      last_name: last_name,
-      phone: phone,
-      email: email,
-      password: password,
-    });
+      first_name: first_name.current.value,
+      last_name: last_name.current.value,
+      phone: phone.current.value,
+      email: email.current.value,
+      password: password.current.value,
+    };
+    setCurrentUser(newUser);
+    // Updating the state using the functional form of setUserInfoData
+    setUserInfoData((prevData) => [...prevData, newUser]);
+
     console.log("allowed");
     navigate("/bosh_sahifa");
-    // } else if (user.email === email.current.value.trim()) {
-    // setUserYes(true);
-    // console.log("not allowed");
-    // navigate("/SignUp");
-    // // }
-    // });
   };
 
   return (
@@ -81,9 +82,6 @@ export default function SignUp({ userInfoData, setUserInfoData }) {
             placeholder="Email"
             type="email"
           />
-          {/* <p className="signUpEmailValidation">
-            {userYes ? "This email have already exsist !" : null}
-          </p> */}
           <input
             required
             ref={password}
