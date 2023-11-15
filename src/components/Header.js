@@ -7,10 +7,6 @@ export default function Header({ setOpen }) {
   const location = useLocation();
   const [openAccountModal, setOpenAccountModal] = useState(false);
   const [profileToolBar, setProfileToolbar] = useState(false);
-  console.log(
-    "🚀 ~ file: Header.js:10 ~ Header ~ profileToolBar:",
-    profileToolBar
-  );
   const currentPath = location.pathname;
   return (
     <div className="main-header">

@@ -25,6 +25,7 @@ li {
   height: 28px;
   flex-shrink: 0;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .header {
@@ -540,6 +541,13 @@ li {
   top: 180px;
   color: #c9ac8c;
 }
+
+.signUpEmailValidation {
+  color: red;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 770px) {
   .notFoundPageSorry,
   .notFoundPageTitle,
@@ -551,7 +559,7 @@ li {
     position: static;
     font-size: 30px;
   }
-  .notFoundPage .section-title{
+  .notFoundPage .section-title {
     margin: 0 auto;
     width: 90%;
   }

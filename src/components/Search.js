@@ -14,9 +14,6 @@ export default function Search({ filterBySearch, setSearchText }) {
           placeholder="Adiblar, kitoblar, audiolar, maqolalar..."
           className="search-input"
         />
-        <button className="search-button">
-          <i className="bx bx-search-alt-2"></i> Izlash
-        </button>
       </div>
     </div>
   );

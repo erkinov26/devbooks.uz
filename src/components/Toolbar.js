@@ -50,7 +50,7 @@ export default function Toolbar({
           onClick={() => setProfileToolbar(!profileToolBar)}
           className="toolbarX"
         >
-          <i class="bx bx-x"></i>
+          <i className="bx bx-x"></i>
         </span>
       </div>
     </div>

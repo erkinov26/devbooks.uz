@@ -1,28 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import SignUpImageLeft from "../images/SignUpImageLeft.png";
 import { useNavigate } from "react-router-dom";
-import userData from "../Data/UserData";
-export default function SignUp() {
-  const [data, setData] = useState(userData);
+export default function SignUp({ userInfoData, setUserInfoData }) {
+  console.log(userInfoData, "userdata signup");
   const first_name = useRef();
   const last_name = useRef();
   const phone = useRef();
   const email = useRef();
   const password = useRef();
-
-  const addNewUser = () => {
-    setData(...data, {
+  const navigate = useNavigate();
+  // const [userYes, setUserYes] = useState();
+  const addNewUser = (e) => {
+    e.preventDefault();
+    // eslint-disable-next-line array-callback-return
+    // userData.map((user) => {
+    // if (user.email !== email.current.value.trim()) {
+    // setUserYes(false);
+    setUserInfoData(...userInfoData, {
+      id: 3,
       first_name: first_name,
       last_name: last_name,
       phone: phone,
       email: email,
       password: password,
     });
+    console.log("allowed");
     navigate("/bosh_sahifa");
+    // } else if (user.email === email.current.value.trim()) {
+    // setUserYes(true);
+    // console.log("not allowed");
+    // navigate("/SignUp");
+    // // }
+    // });
   };
-  console.log(data, "data");
 
-  const navigate = useNavigate();
   return (
     <div className="signInSection">
       <div className="signInLeft">
@@ -63,12 +74,16 @@ export default function SignUp() {
             type="text"
           />
           <input
+            style={{ marginBottom: 0 }}
             required
             ref={email}
             className="FormInput"
             placeholder="Email"
             type="email"
           />
+          {/* <p className="signUpEmailValidation">
+            {userYes ? "This email have already exsist !" : null}
+          </p> */}
           <input
             required
             ref={password}

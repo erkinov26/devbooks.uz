@@ -13,8 +13,10 @@ import Profile from "./Pages/Profile";
 import Security from "./Pages/Security";
 import Setting from "./Pages/Setting";
 import NotFound from "./Pages/NotFound";
+import userData from "./Data/UserData";
 function App() {
   const [data, setData] = useState(authors);
+  const [userInfoData, setUserInfoData] = useState(userData);
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,7 +44,15 @@ function App() {
           element={<Forum open={open} setOpen={setOpen} />}
         />
         <Route path="/" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route
+          path="/SignUp"
+          element={
+            <SignUp
+              userInfoData={userInfoData}
+              setUserInfoData={setUserInfoData}
+            />
+          }
+        />
 
         <Route path="/my_account" element={<Profile />} />
         <Route path="/security" element={<Security />} />
