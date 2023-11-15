@@ -75,7 +75,6 @@ export default function SignUp({
             type="text"
           />
           <input
-            style={{ marginBottom: 0 }}
             required
             ref={email}
             className="FormInput"
@@ -87,7 +86,7 @@ export default function SignUp({
             ref={password}
             className="FormInput"
             placeholder="Password"
-            type="text"
+            type="password"
           />
           <button className="logBtn" type="submit">
             Next step
