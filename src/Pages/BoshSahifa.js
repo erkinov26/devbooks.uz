@@ -11,6 +11,7 @@ export default function BoshSahifa({
   setOpen,
   open,
   currentUserImg,
+  setCurrentUserImg,
 }) {
   const [filteredAuthors, setFilteredAuthors] = useState(data);
   const [searchText, setSearchText] = useState("");
@@ -34,7 +35,11 @@ export default function BoshSahifa({
 
   return (
     <>
-      <Header setOpen={setOpen} currentUserImg={currentUserImg} />
+      <Header
+        setOpen={setOpen}
+        currentUserImg={currentUserImg}
+        setCurrentUserImg={setCurrentUserImg}
+      />
       <SideBar open={open} setOpen={setOpen} />
       <HeroSection
         thumbItem={thumbItem}

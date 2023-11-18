@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../images/account-img.png";
 export default function Toolbar({
   profileToolBar,
   openAccountModal,
   setOpenAccountModal,
   setProfileToolbar,
   currentUserImg,
+  setCurrentUserImg,
 }) {
   const navigate = useNavigate();
 
@@ -51,7 +51,13 @@ export default function Toolbar({
           Settings
         </p>
 
-        <p className="profileToolBarItem" onClick={() => navigate("/")}>
+        <p
+          className="profileToolBarItem"
+          onClick={() => {
+            // eslint-disable-next-line no-unused-expressions, no-sequences
+            navigate("/"), setCurrentUserImg();
+          }}
+        >
           Log Out
         </p>
         <span

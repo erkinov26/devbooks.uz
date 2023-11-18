@@ -18,6 +18,7 @@ function App() {
   const [data, setData] = useState(authors);
   const [userInfoData, setUserInfoData] = useState(userData);
   const [open, setOpen] = useState(false);
+  const [currentUserInfo, setCurrentUserInfo] = useState();
   const [currentUserImg, setCurrentUserImg] = useState();
 
   return (
@@ -52,6 +53,7 @@ function App() {
             <SignIn
               userInfoData={userInfoData}
               setUserInfoData={setUserInfoData}
+              setCurrentUserInfo={setCurrentUserInfo}
             />
           }
         />
@@ -61,6 +63,7 @@ function App() {
             <SignUp
               userInfoData={userInfoData}
               setUserInfoData={setUserInfoData}
+              setCurrentUserInfo={setCurrentUserInfo}
             />
           }
         />
@@ -71,6 +74,8 @@ function App() {
             <Profile
               currentUserImg={currentUserImg}
               setCurrentUserImg={setCurrentUserImg}
+              currentUserInfo={currentUserInfo}
+              setCurrentUserInfo={setCurrentUserInfo}
             />
           }
         />

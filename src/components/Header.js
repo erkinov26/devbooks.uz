@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Toolbar from "./Toolbar";
-export default function Header({ setOpen, currentUserImg }) {
+export default function Header({ setOpen, currentUserImg, setCurrentUserImg }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [openAccountModal, setOpenAccountModal] = useState(false);
@@ -78,6 +78,7 @@ export default function Header({ setOpen, currentUserImg }) {
           setProfileToolbar={setProfileToolbar}
           profileToolBar={profileToolBar}
           currentUserImg={currentUserImg}
+          setCurrentUserImg={setCurrentUserImg}
         />
       </div>
       <button

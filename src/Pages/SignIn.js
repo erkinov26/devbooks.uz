@@ -5,8 +5,7 @@ import Input from "../components/Input";
 export default function SignIn({
   userInfoData,
   setUserInfoData,
-  currentUser,
-  setCurrentUser,
+  setCurrentUserInfo,
 }) {
   const navigate = useNavigate();
   const emailRef = useRef();
@@ -22,7 +21,11 @@ export default function SignIn({
         user.password === passwordRef.current.value.trim()
       ) {
         // eslint-disable-next-line no-sequences
-        return navigate("/bosh_sahifa"), setPasswordCheck(false);
+        return (
+          navigate("/bosh_sahifa"),
+          setPasswordCheck(false),
+          setCurrentUserInfo(user)
+        );
       } else if (
         user.email === emailRef.current.value.trim() &&
         user.password !== passwordRef.current.value.trim()

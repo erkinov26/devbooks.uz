@@ -2,7 +2,11 @@ import React, { useRef, useState } from "react";
 import SignUpImageLeft from "../images/SignUpImageLeft.png";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
-export default function SignUp({ userInfoData, setUserInfoData }) {
+export default function SignUp({
+  userInfoData,
+  setUserInfoData,
+  setCurrentUserInfo,
+}) {
   const first_name = useRef();
   const last_name = useRef();
   const phone = useRef();
@@ -28,7 +32,7 @@ export default function SignUp({ userInfoData, setUserInfoData }) {
         email: email.current.value,
         password: password.current.value,
       };
-
+      setCurrentUserInfo(newUser);
       setUserInfoData((prevData) => [...prevData, newUser]);
 
       // Check if the email is already registered in the new user data
