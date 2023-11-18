@@ -5,7 +5,13 @@ import Cards from "../components/Cards";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 
-export default function BoshSahifa({ data, setData, setOpen, open }) {
+export default function BoshSahifa({
+  data,
+  setData,
+  setOpen,
+  open,
+  currentUserImg,
+}) {
   const [filteredAuthors, setFilteredAuthors] = useState(data);
   const [searchText, setSearchText] = useState("");
   const [literatureOpen, setLiteratureOpen] = useState(false);
@@ -28,7 +34,7 @@ export default function BoshSahifa({ data, setData, setOpen, open }) {
 
   return (
     <>
-      <Header setOpen={setOpen} />
+      <Header setOpen={setOpen} currentUserImg={currentUserImg} />
       <SideBar open={open} setOpen={setOpen} />
       <HeroSection
         thumbItem={thumbItem}

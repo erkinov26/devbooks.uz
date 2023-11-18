@@ -1,16 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../images/logInLeft.svg";
+import Input from "../components/Input";
 export default function SignIn({
   userInfoData,
   setUserInfoData,
   currentUser,
   setCurrentUser,
 }) {
-  console.log(userInfoData, "userInfoData in singin");
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [passwordCheck, setPasswordCheck] = useState(false);
+  console.log("🚀 ~ file: SignIn.js:18 ~ passwordCheck:", passwordCheck);
   const onsubmit = (e) => {
     e.preventDefault();
     // eslint-disable-next-line array-callback-return
@@ -19,7 +21,18 @@ export default function SignIn({
         user.email === emailRef.current.value.trim() &&
         user.password === passwordRef.current.value.trim()
       ) {
-        return navigate("/bosh_sahifa");
+        // eslint-disable-next-line no-sequences
+        return navigate("/bosh_sahifa"), setPasswordCheck(false);
+      } else if (
+        user.email === emailRef.current.value.trim() &&
+        user.password !== passwordRef.current.value.trim()
+      ) {
+        setPasswordCheck(true);
+      } else if (
+        user.email !== emailRef.current.value.trim() &&
+        user.password !== passwordRef.current.value.trim()
+      ) {
+        setPasswordCheck(true);
       }
     });
   };
@@ -40,18 +53,16 @@ export default function SignIn({
               Sign up
             </span>
           </p>
-          <input
-            ref={emailRef}
-            className="FormInput"
-            placeholder="Email"
-            type="email"
-          />
-          <input
-            ref={passwordRef}
-            className="FormInput"
+          <Input innerRef={emailRef} placeholder="Email" type="text" />
+
+          <Input
+            innerRef={passwordRef}
             placeholder="Password"
-            type="text"
+            type="password"
           />
+          <p className="signInPasswordCheck">
+            {passwordCheck ? "Sorry, your password was incorrect." : null}
+          </p>
           <button className="logBtn" type="submit">
             Next step
           </button>

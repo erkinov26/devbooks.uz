@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../images/account-img.png";
@@ -6,6 +7,7 @@ export default function Toolbar({
   openAccountModal,
   setOpenAccountModal,
   setProfileToolbar,
+  currentUserImg,
 }) {
   const navigate = useNavigate();
 
@@ -14,12 +16,18 @@ export default function Toolbar({
       className="user-left"
       onClick={() => setOpenAccountModal(!openAccountModal)}
     >
-      <img
-        className="account-img"
-        src={img}
-        alt="img"
+      <div
+        className="accountImgBack"
         onClick={() => setProfileToolbar(!profileToolBar)}
-      />
+      >
+        <img
+          // style={{ display: "none" }}
+          className="account-img"
+          src={currentUserImg}
+          alt=""
+        />
+      </div>
+
       {profileToolBar ? (
         <i className="bx bx-chevron-up"></i>
       ) : (

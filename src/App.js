@@ -17,10 +17,8 @@ import userData from "./Data/UserData";
 function App() {
   const [data, setData] = useState(authors);
   const [userInfoData, setUserInfoData] = useState(userData);
-  // console.log(userInfoData, "app js");
   const [open, setOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState();
-  console.log("🚀 ~ file: App.js:23 ~ App ~ currentUser:", currentUser);
+  const [currentUserImg, setCurrentUserImg] = useState();
 
   return (
     <div className="App">
@@ -33,6 +31,8 @@ function App() {
               setOpen={setOpen}
               data={data}
               setData={setData}
+              currentUserImg={currentUserImg}
+              setCurrentUserImg={setCurrentUserImg}
             />
           }
         />
@@ -52,8 +52,6 @@ function App() {
             <SignIn
               userInfoData={userInfoData}
               setUserInfoData={setUserInfoData}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
             />
           }
         />
@@ -63,8 +61,6 @@ function App() {
             <SignUp
               userInfoData={userInfoData}
               setUserInfoData={setUserInfoData}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
             />
           }
         />
@@ -73,8 +69,8 @@ function App() {
           path="/my_account"
           element={
             <Profile
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
+              currentUserImg={currentUserImg}
+              setCurrentUserImg={setCurrentUserImg}
             />
           }
         />

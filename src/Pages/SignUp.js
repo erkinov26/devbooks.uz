@@ -1,38 +1,45 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import SignUpImageLeft from "../images/SignUpImageLeft.png";
 import { useNavigate } from "react-router-dom";
-export default function SignUp({
-  userInfoData,
-  setUserInfoData,
-  currentUser,
-  setCurrentUser,
-}) {
-  // console.log("🚀 ~ file: SignUp.js:5 ~ SignUp ~ userInfoData:", userInfoData);
+import Input from "../components/Input";
+export default function SignUp({ userInfoData, setUserInfoData }) {
   const first_name = useRef();
   const last_name = useRef();
   const phone = useRef();
   const email = useRef();
   const password = useRef();
   const navigate = useNavigate();
-
+  const [signUpEmailCheck, setSignUpEmailCheck] = useState(false);
   const addNewUser = (e) => {
     e.preventDefault();
 
-    // Accessing the current values of the refs
-    const newUser = {
-      id: 3,
-      first_name: first_name.current.value,
-      last_name: last_name.current.value,
-      phone: phone.current.value,
-      email: email.current.value,
-      password: password.current.value,
-    };
-    setCurrentUser(newUser);
-    // Updating the state using the functional form of setUserInfoData
-    setUserInfoData((prevData) => [...prevData, newUser]);
+    const emailExists = userInfoData.some(
+      (user) => user.email === email.current.value.trim()
+    );
 
-    console.log("allowed");
-    navigate("/bosh_sahifa");
+    if (emailExists) {
+      setSignUpEmailCheck(true);
+    } else {
+      const newUser = {
+        id: 3,
+        first_name: first_name.current.value,
+        last_name: last_name.current.value,
+        phone: phone.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      };
+
+      setUserInfoData((prevData) => [...prevData, newUser]);
+
+      // Check if the email is already registered in the new user data
+      if (
+        userInfoData.some((user) => user.email === email.current.value.trim())
+      ) {
+        setSignUpEmailCheck(true);
+      } else {
+        navigate("/bosh_sahifa");
+      }
+    }
   };
 
   return (
@@ -53,41 +60,17 @@ export default function SignUp({
               Sign in
             </span>
           </p>
-          <input
-            required
-            ref={first_name}
-            className="FormInput"
-            placeholder="First name"
-            type="text"
-          />
-          <input
-            required
-            ref={last_name}
-            className="FormInput"
-            placeholder="Last name"
-            type="text"
-          />
-          <input
-            required
-            ref={phone}
-            className="FormInput"
-            placeholder="phone"
-            type="text"
-          />
-          <input
-            required
-            ref={email}
-            className="FormInput"
-            placeholder="Email"
-            type="email"
-          />
-          <input
-            required
-            ref={password}
-            className="FormInput"
-            placeholder="Password"
-            type="password"
-          />
+          <Input innerRef={first_name} placeholder="First Name" type="text" />
+          <Input innerRef={last_name} placeholder="Last name" type="text" />
+          <Input innerRef={phone} placeholder="Phone" type="text" />
+          <Input innerRef={email} placeholder="Email" type="text" />
+
+          {signUpEmailCheck && (
+            <p className="signUpEmailCheck">
+              This email has already been registered.
+            </p>
+          )}
+          <Input innerRef={password} placeholder="Password" type="password" />
           <button className="logBtn" type="submit">
             Next step
           </button>
