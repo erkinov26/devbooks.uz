@@ -1,37 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Thumbs({ filterByType, setThumbItem, thumbItem }) {
+export default function Thumbs({ thumbItem }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % thumbItem);
+    }, 5000);
+
+    return () => clearInterval(intervalId); // Clear the interval on component unmount
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [thumbItem]);
+
+  const thumbsArray = Array.from({ length: 4 });
+
   return (
     <ul className="thumb-box">
-      <li
-        className={`thumb-item ${thumbItem === 0 ? "active" : ""}`}
-        onClick={() => {
-          filterByType("Temuriylar");
-          setThumbItem(0);
-        }}
-      ></li>
-      <li
-        className={`thumb-item ${thumbItem === 1 ? "active" : ""}`}
-        onClick={() => {
-          filterByType("Jadid");
-          setThumbItem(1);
-        }}
-      ></li>
-      <li
-        className={`thumb-item ${thumbItem === 2 ? "active" : ""}`}
-        onClick={() => {
-          filterByType("Sovet");
-          setThumbItem(2);
-        }}
-      ></li>
-      <li
-      // some content is added
-        className={`thumb-item ${thumbItem === 3 ? "active" : ""}`}
-        onClick={() => {
-          filterByType("Mustaqillik");
-          setThumbItem(3);
-        }}
-      ></li>
+      {thumbsArray.map((_, index) => (
+        <li key={index} className={`thumb-item ${index === activeIndex ? "active" : ""}`}></li>
+      ))}
     </ul>
   );
 }

@@ -113,15 +113,31 @@ li {
   bottom: 0px;
   width: 200px;
 }
+
+.heroCarouselContainer {
+  width: 300px;
+  height: 220px;
+  display: flex;
+  margin-top: 30px;
+  margin-left: 70px;
+  overflow: hidden;
+  border: 5px solid red;
+}
+
 .hero-title {
+  width: 240px;
   color: #c9ac8c;
   font-family: Rotterburg Stylish FREE;
   font-size: 61px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: 40px;
-  margin-left: 70px;
+  transition: 0.5s;
+  transform: translateX(0px);
+}
+
+.hero-title:not(:last-child) {
+  margin-right: 60px;
 }
 
 .search-section {
@@ -584,6 +600,28 @@ li {
   position: absolute;
   font-size: 10px;
   bottom: 135px;
+}
+
+.notAccessToolbar {
+  color: #fff;
+  border: 1.5px solid #c9ac8c;
+  padding: 5px 15px;
+  transition: 0.8s;
+}
+.notAccessToolbar:hover {
+  cursor: pointer;
+  color: #c9ac8c;
+  border-color: #fff;
+}
+.sidebar .notAccessToolbar {
+  display: none;
+}
+
+.editSection{
+  width: 60%;
+  height: 800px;
+  margin: 50px auto;
+  background: #fff;
 }
 
 @media screen and (max-width: 770px) {

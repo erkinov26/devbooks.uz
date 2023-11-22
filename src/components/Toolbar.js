@@ -55,7 +55,7 @@ export default function Toolbar({
           className="profileToolBarItem"
           onClick={() => {
             // eslint-disable-next-line no-unused-expressions, no-sequences
-            navigate("/"), setCurrentUserImg();
+            navigate("/SignIn"), setCurrentUserImg();
           }}
         >
           Log Out

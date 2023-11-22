@@ -1,85 +1,70 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import Toolbar from "./Toolbar";
-export default function Header({ setOpen, currentUserImg, setCurrentUserImg }) {
-  const navigate = useNavigate();
-  const location = useLocation();
+import NotAccessToolbar from "./NotAccessToolbar";
+import NavItem from "./NavItem";
+export default function Header({
+  setOpen,
+  currentUserImg,
+  setCurrentUserImg,
+  access,
+  setAccess,
+}) {
   const [openAccountModal, setOpenAccountModal] = useState(false);
   const [profileToolBar, setProfileToolbar] = useState(false);
-  const currentPath = location.pathname;
   return (
     <div className="main-header">
       <div className="header">
         <h1 className="section-title"> BADIYAT</h1>
         <ul className="navbar">
-          <li className="nav-item">
-            <p
-              className={`nav-link ${
-                currentPath === "/bosh_sahifa" ? "active" : ""
-              }`}
-              onClick={() => {
-                navigate("/bosh_sahifa");
-                setOpen(false);
-              }}
-            >
-              Bosh Sahifa
-            </p>
-          </li>
-          <li className="nav-item">
-            <p
-              className={`nav-link ${currentPath === "/nasr" ? "active" : ""}`}
-              onClick={() => {
-                navigate("/nasr");
-                setOpen(false);
-              }}
-            >
-              Nasr
-            </p>
-          </li>
-          <li className="nav-item">
-            <p
-              className={`nav-link ${currentPath === "/nazm" ? "active" : ""}`}
-              onClick={() => {
-                navigate("/nazm");
-                setOpen(false);
-              }}
-            >
-              Nazm
-            </p>
-          </li>
-          <li className="nav-item">
-            <p
-              className={`nav-link ${
-                currentPath === "/maqolalar" ? "active" : ""
-              }`}
-              onClick={() => {
-                navigate("/maqolalar");
-                setOpen(false);
-              }}
-            >
-              Maqolalar
-            </p>
-          </li>
-          <li className={`nav-item`}>
-            <p
-              className={`nav-link ${currentPath === "/forum" ? "active" : ""}`}
-              onClick={() => {
-                navigate("/forum");
-                setOpen(false);
-              }}
-            >
-              Forum
-            </p>
-          </li>
+          <NavItem
+            setOpen={setOpen}
+            access={access}
+            pathLinkName={"/"}
+            text={"Bosh Sahifa"}
+          />
+
+          <NavItem
+            setOpen={setOpen}
+            access={access}
+            pathLinkName={"/nasr"}
+            text={"Nasr"}
+          />
+
+          <NavItem
+            setOpen={setOpen}
+            access={access}
+            pathLinkName={"/nazm"}
+            text={"Nazm"}
+          />
+
+          <NavItem
+            setOpen={setOpen}
+            access={access}
+            pathLinkName={"/maqolalar"}
+            text={"Maqolalar"}
+          />
+
+          <NavItem
+            setOpen={setOpen}
+            access={access}
+            pathLinkName={"/forum"}
+            text={"Forum"}
+          />
         </ul>
-        <Toolbar
-          setOpenAccountModal={setOpenAccountModal}
-          openAccountModal={openAccountModal}
-          setProfileToolbar={setProfileToolbar}
-          profileToolBar={profileToolBar}
-          currentUserImg={currentUserImg}
-          setCurrentUserImg={setCurrentUserImg}
-        />
+        {access ? (
+          <Toolbar
+            setOpenAccountModal={setOpenAccountModal}
+            openAccountModal={openAccountModal}
+            setProfileToolbar={setProfileToolbar}
+            profileToolBar={profileToolBar}
+            currentUserImg={currentUserImg}
+            setCurrentUserImg={setCurrentUserImg}
+            access={access}
+            setAccess={setAccess}
+          />
+        ) : (
+          <NotAccessToolbar />
+        )}
       </div>
       <button
         className="menu-button"

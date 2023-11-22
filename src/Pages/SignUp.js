@@ -6,6 +6,8 @@ export default function SignUp({
   userInfoData,
   setUserInfoData,
   setCurrentUserInfo,
+  access,
+  setAccess,
 }) {
   const first_name = useRef();
   const last_name = useRef();
@@ -13,6 +15,7 @@ export default function SignUp({
   const email = useRef();
   const password = useRef();
   const navigate = useNavigate();
+
   const [signUpEmailCheck, setSignUpEmailCheck] = useState(false);
   const addNewUser = (e) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function SignUp({
       setSignUpEmailCheck(true);
     } else {
       const newUser = {
-        id: 3,
+        id: Math.random() * 1000,
         first_name: first_name.current.value,
         last_name: last_name.current.value,
         phone: phone.current.value,
@@ -41,7 +44,8 @@ export default function SignUp({
       ) {
         setSignUpEmailCheck(true);
       } else {
-        navigate("/bosh_sahifa");
+        navigate("/");
+        setAccess(true);
       }
     }
   };
@@ -60,7 +64,10 @@ export default function SignUp({
           <h1 className="signInTitle">Sign up</h1>
           <p className="questionText">
             Already have an account ?{" "}
-            <span className="innerQuestionText" onClick={() => navigate("/")}>
+            <span
+              className="innerQuestionText"
+              onClick={() => navigate("/SignIn")}
+            >
               Sign in
             </span>
           </p>

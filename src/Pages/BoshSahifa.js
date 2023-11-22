@@ -7,11 +7,12 @@ import SideBar from "../components/SideBar";
 
 export default function BoshSahifa({
   data,
-  setData,
   setOpen,
   open,
   currentUserImg,
   setCurrentUserImg,
+  access,
+  setAccess,
 }) {
   const [filteredAuthors, setFilteredAuthors] = useState(data);
   const [searchText, setSearchText] = useState("");
@@ -36,6 +37,8 @@ export default function BoshSahifa({
   return (
     <>
       <Header
+        access={access}
+        setAccess={setAccess}
         setOpen={setOpen}
         currentUserImg={currentUserImg}
         setCurrentUserImg={setCurrentUserImg}
@@ -107,7 +110,7 @@ export default function BoshSahifa({
         </li>
       </ul>
 
-      <Cards data={filteredAndSearchedAuthors} />
+      <Cards data={filteredAndSearchedAuthors} access={access} />
     </>
   );
 }

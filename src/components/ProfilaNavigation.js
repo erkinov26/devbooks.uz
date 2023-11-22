@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ProfileNavigationItem from "./ProfileNavigationItem";
 
 export default function ProfilaNavigation() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [navigation, setNavigation] = useState(false);
-  const currentPath = location.pathname;
   return (
     <div className="profilenavbar">
       <ul
@@ -17,50 +16,24 @@ export default function ProfilaNavigation() {
           className="bx bx-menu-alt-left"
           onClick={() => setNavigation(!navigation)}
         ></i>
-        <li
-          className={`myProfileNavItem ${
-            currentPath === "/my_account" ? "active" : ""
-          }`}
-        >
-          <span className="myProfileNavItemNumber">1</span>
-          <span
-            onClick={() => navigate("/my_account")}
-            className="profileNavItemHeader"
-          >
-            My Account
-          </span>
-        </li>
-        <li
-          className={`myProfileNavItem ${
-            currentPath === "/security" ? "active" : ""
-          }`}
-        >
-          <span className="myProfileNavItemNumber">2</span>
-          <span
-            className="profileNavItemHeader"
-            onClick={() => navigate("/security")}
-          >
-            Security
-          </span>
-        </li>
-        <li
-          className={`myProfileNavItem ${
-            currentPath === "/setting" ? "active" : ""
-          }`}
-        >
-          <span className="myProfileNavItemNumber">3</span>
-          <span
-            className="profileNavItemHeader"
-            onClick={() => navigate("/setting")}
-          >
-            Setting
-          </span>
-        </li>
+
+        <ProfileNavigationItem
+          children="My Account"
+          pathname="/my_account"
+          spanNumber="1"
+        />
+        <ProfileNavigationItem
+          children="Security"
+          pathname="/security"
+          spanNumber="2"
+        />
+        <ProfileNavigationItem
+          children="Settings"
+          pathname="/setting"
+          spanNumber="3"
+        />
       </ul>
-      <span
-        className="backFromProfile"
-        onClick={() => navigate("/bosh_sahifa")}
-      >
+      <span className="backFromProfile" onClick={() => navigate("/")}>
         <i className="bx bx-arrow-back"></i>
       </span>
       <i

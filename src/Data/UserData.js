@@ -9,11 +9,14 @@ const userData = [
   },
   {
     id: 2,
-    first_name: "Abbos",
+    first_name: "Temurbek",
     last_name: "Suvonov",
     phone: "+998900977733",
     email: "example@gmail.com",
     password: "example.uz",
   },
 ];
+
+
+
 export default userData;

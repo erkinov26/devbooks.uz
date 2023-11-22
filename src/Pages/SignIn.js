@@ -6,6 +6,8 @@ export default function SignIn({
   userInfoData,
   setUserInfoData,
   setCurrentUserInfo,
+  access,
+  setAccess,
 }) {
   const navigate = useNavigate();
   const emailRef = useRef();
@@ -22,9 +24,10 @@ export default function SignIn({
       ) {
         // eslint-disable-next-line no-sequences
         return (
-          navigate("/bosh_sahifa"),
+          navigate("/"),
           setPasswordCheck(false),
-          setCurrentUserInfo(user)
+          setCurrentUserInfo(user),
+          setAccess(true)
         );
       } else if (
         user.email === emailRef.current.value.trim() &&
